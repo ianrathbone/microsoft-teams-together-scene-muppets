@@ -8,13 +8,10 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Archive Release
-      uses: thedoctor0/zip-release@master
+      uses: papeloto/action-zip@v1
       with:
-        type: 'zip'
-        path: '*'
-        directory: 'scenefiles'
-        filename: 'MuppetsTeamsTogetherScene.zip'
-        exclusions: '*.git* /*node_modules/* .editorconfig'
+        files: scenefiles/
+        dest: MuppetsTeamsTogetherScene.zip
     - uses: ncipollo/release-action@v1
       with:
         artifacts: "MuppetsTeamsTogetherScene.zip"
