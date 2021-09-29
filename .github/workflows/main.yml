@@ -15,6 +15,6 @@ jobs:
         filename: 'MuppetsTeamsTogetherScene.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
     - uses: ncipollo/release-action@v1
-    - with:
+      with:
         artifacts: "MuppetsTeamsTogetherScene.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
