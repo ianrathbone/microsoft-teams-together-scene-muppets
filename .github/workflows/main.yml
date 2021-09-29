@@ -1,15 +1,20 @@
-name: Zip Files
-
+name: Create Archive
 on:
   release:
     types: [published]
-
 jobs:
-  zip-files:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: papeloto/action-zip@v1
-        with:
-          files: scenefiles/
-          dest: MuppetsTeamsTogetherScene.zip
+    - uses: actions/checkout@master
+    - name: Archive Release
+      uses: thedoctor0/zip-release@master
+      with:
+        type: 'zip'
+        path: 'scenefiles/'
+        filename: 'MuppetsTeamsTogetherScene.zip'
+        exclusions: '*.git* /*node_modules/* .editorconfig'
+    - uses: ncipollo/release-action@v1
+    - with:
+        artifacts: "MuppetsTeamsTogetherScene.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
