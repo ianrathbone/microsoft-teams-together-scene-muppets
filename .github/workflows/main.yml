@@ -11,7 +11,7 @@ jobs:
       uses: thedoctor0/zip-release@master
       with:
         type: 'zip'
-        path: 'scenefiles/*'
+        path: 'scenefiles'
         filename: 'MuppetsTeamsTogetherScene.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
     - uses: ncipollo/release-action@v1
